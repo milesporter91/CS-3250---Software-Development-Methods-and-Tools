@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block main %}
+<h1>Students</h1>
+<p><a href="{{ url_for('create_student') }}">Create Student</a></p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr class="{{ 'odd_row' if loop.index is odd else 'even_row' }}">
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="2">No students found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

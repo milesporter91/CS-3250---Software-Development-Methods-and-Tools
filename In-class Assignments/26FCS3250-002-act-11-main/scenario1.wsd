@@ -1,0 +1,30 @@
+@startuml Scenario 1
+' * a department has a name and a location; 
+' * an employee has an id (numeric), name, and email; 
+' * employees work at one department at a time, while a department can (potentially) have many employees​;
+' * a department might exist without an employee working at it;
+' * an employee might exist without working at a department;
+' * employees can have family members listed as dependents (for health benefits)​; 
+' * each dependent is associated with only employee; 
+' * an employee might not have dependents; 
+' * a dependent cannot exist without being associated with an employee.
+class Department {
+    name: string
+    location: string
+}
+
+class Employee {
+    id: int
+    name: string
+    email: string
+}
+
+class Dependent {
+    name: string
+}
+
+Department "0..1" --> "0..n" Employee: employees
+Employee "1" *-> "0..n" Dependent: dependents
+
+
+@enduml

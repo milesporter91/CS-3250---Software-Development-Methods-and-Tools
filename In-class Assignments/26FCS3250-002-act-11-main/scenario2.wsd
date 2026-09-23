@@ -1,0 +1,11 @@
+@startuml Scenario2 
+' * a sale is made of many items and the same item can appear on many different sales​; 
+' * a sale is done by only one seller;
+' * a seller can do many sales​.
+class Sale
+class Item
+class Seller
+
+Sale "0..n" --> "1..n" Item: items
+Sale "0..n" --> "1" Seller: seller
+@enduml

@@ -1,0 +1,16 @@
+@startuml Scenario3
+' * a course can have many sections​; 
+' * a section is always associated with one course and cannot exist without a course;
+' * each section can have many students and each student can enroll in many different course sections​; 
+' * a course section is taught by only one instructor​;
+' * a instructor can teach many course sections. 
+class Course
+class Section
+class Instructor
+class Student
+
+Course "1" *-> "0..n" Section: sections
+Section "0..n" --> "0..n" Student: students
+Instructor "1" --> "0..n" Section: sections
+
+@enduml

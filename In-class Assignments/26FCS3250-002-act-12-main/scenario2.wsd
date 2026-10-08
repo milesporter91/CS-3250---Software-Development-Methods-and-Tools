@@ -1,0 +1,43 @@
+@startuml
+
+' # Scenario 2
+
+' A system is to be developed that allows users to register for workshops. During a workshop, participants must check in daily. If a participant attends at least 50% of the workshop days, they receive a certificate, which they can share on social media platforms.
+
+' On the last day of the workshop, participants are invited to complete an evaluation form.
+
+' Administrator users are responsible for:
+
+' * Creating workshops, including defining their daily schedules
+' * Issuing evaluation reports at any time
+
+left to right direction
+
+:User:
+:Participant:
+:Administrator:
+User <|-- Participant
+User <|-- Administrator
+
+package "Workshop Management App" {
+    :Administrator: --> (creates workshop)
+
+    (creates workshop) .. (defines daily schedule) : includes
+
+    :Participant: --> (registers to workshop)
+
+    :Participant: --> (checks in)
+
+    (checks in) .. (updates attendance) : includes
+
+    :Participant: --> (requests certificate)
+
+    :Participant: --> (shares certificate online)
+
+    :Participant: --> (evaluates workshop)
+
+    :Administrator: --> (issues evaluation)
+
+}
+
+@enduml

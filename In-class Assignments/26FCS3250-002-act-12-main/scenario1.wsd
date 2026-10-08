@@ -1,0 +1,31 @@
+@startuml
+
+
+' # Scenario 1
+
+' A computerized system is to be developed for recording sales and handling payments in a typical retail store. The system will interact with hardware components such as bar code scanners and computers. Its goals include:
+
+' * Increasing checkout automation
+' * Enabling fast and accurate sales analysis
+' * Supporting automatic inventory control
+
+' The primary actors to consider in the use case diagram are:
+
+' * Customer
+' * Cashier
+' * Manager
+
+left to right direction
+
+:Person:
+:Employee:
+:Customer:
+:Cashier:
+:Manager:
+
+:Employee: --> :Person:
+:Cashier: --> :Employee:
+:Manager: --> :Employee:
+:Customer: --> :Person:
+
+@enduml
